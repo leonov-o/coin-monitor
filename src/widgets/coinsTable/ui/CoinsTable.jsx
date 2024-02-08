@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {CoinRow} from "../../../entities/coin/index.js";
 
-const coins = [
+const coinsList = [
     {
         "id": "bitcoin",
         "symbol": "btc",
@@ -3184,17 +3184,51 @@ const coins = [
     }
 ]
 export const CoinsTable = () => {
+    const [coins, setCoins] = useState(coinsList);
+    const [sortBy, setSortBy] = useState("market_cap_rank");
+    const [desc, setDesc] = useState(false);
+
+    useEffect(() => {
+        const sorted = coins.sort((a, b) => {
+            const aValue = sortBy === "name" ? a[sortBy].toLowerCase() : a[sortBy];
+            const bValue = sortBy === "name" ? b[sortBy].toLowerCase() : b[sortBy];
+            if (desc) {
+                return aValue > bValue ? 1 : -1;
+            } else {
+                return aValue < bValue ? 1 : -1;
+            }
+        });
+        setCoins([...sorted])
+    }, [sortBy, desc]);
+
+    const setSort = (e) => {
+        setSortBy(e.target.id);
+        setDesc(!desc);
+    }
+
+    const handleSort = (id) => {
+        if (sortBy === id) {
+            if (desc) {
+                return "▾";
+            }
+            return "▴";
+        }
+    }
+
     return (
-        <div className="px-96 flex justify-center pb-24">
+        <div className="px-80 flex justify-center pb-24">
             <table className="table-auto w-full min-w-[608px]">
                 <thead>
-                <tr className="text-left bg-gray-100 border-b-2">
-                    <th className="pl-3 py-2">#</th>
-                    <th className="py-2">Coin</th>
-                    <th className="py-2">Price</th>
-                    <th className="py-2">1h</th>
-                    <th className="py-2">24h</th>
-                    <th className="py-2">7d</th>
+                <tr onClick={setSort} className="text-left bg-gray-100 border-b-2 cursor-pointer select-none">
+                    <th id="market_cap_rank" className="pl-3 py-2"># {handleSort("market_cap_rank")}</th>
+                    <th id="name" className="py-2">Coin {handleSort("name")}</th>
+                    <th id="current_price" className="py-2">Price {handleSort("current_price")}</th>
+                    <th id="price_change_percentage_1h_in_currency"
+                        className="py-2">1h {handleSort("price_change_percentage_1h_in_currency")}</th>
+                    <th id="price_change_percentage_24h_in_currency"
+                        className="py-2">24h {handleSort("price_change_percentage_24h_in_currency")}</th>
+                    <th id="price_change_percentage_7d_in_currency"
+                        className="py-2">7d {handleSort("price_change_percentage_7d_in_currency")}</th>
                 </tr>
                 </thead>
                 <tbody>
