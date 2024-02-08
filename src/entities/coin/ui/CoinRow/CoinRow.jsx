@@ -17,15 +17,15 @@ export const CoinRow = ({data}) => {
     }
 
     return (
-        <tr className="hover:bg-blue-50">
+        <tr className="hover:bg-blue-50 dark:hover:bg-gray-900">
             <td className="pl-3">{rank}</td>
-            <td className="flex items-center cursor-pointer">
-                <div className="w-8 h-8">
+            <td className="flex cursor-pointer items-center">
+                <div className="h-8 w-8">
                     <img src={image} alt="coinImage"/>
                 </div>
                 <div className="ml-4">
                     <div className="">{name}</div>
-                    <div className="uppercase font-light">{symbol}</div>
+                    <div className="font-light uppercase">{symbol}</div>
                 </div>
             </td>
             <td>{price} $</td>
