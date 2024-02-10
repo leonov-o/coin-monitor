@@ -1,4 +1,5 @@
 import React from 'react';
+import {ToggleTheme} from "../../../../features/toggleTheme/index";
 
 const navItems = ["Cryptocurrencies", "Converter", "Favourite"];
 
@@ -20,7 +21,7 @@ export const Header = () => {
             </div>
 
             <div className="flex">
-
+                <ToggleTheme/>
             </div>
         </div>
     );

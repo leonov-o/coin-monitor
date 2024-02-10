@@ -3,6 +3,7 @@ import {CoinRow} from "../../../entities/coin/index.js";
 import {fetchCoinsData} from "../../../entities/coin/model/actionCreators.js";
 import {useDispatch, useSelector} from "react-redux";
 import {coinsDataSort} from "../../../entities/coin/model/slice.js";
+import {Loader} from "../../../shared/index.js";
 
 const coinsList = [
     {
@@ -3187,7 +3188,7 @@ const coinsList = [
     }
 ]
 export const CoinsTable = () => {
-    const coins = useSelector(state => state.coins.coinsData);
+    const {coinsData, isLoading, error} = useSelector(state => state.coins);
     const [sortBy, setSortBy] = useState("market_cap_rank");
     const [desc, setDesc] = useState(false);
 
@@ -3218,9 +3219,11 @@ export const CoinsTable = () => {
         }
     }
 
+
     return (
         <div className="flex justify-center px-80 pb-24">
-            <table className="w-full table-auto bg-gray-50 bg-opacity-90 shadow-2xl backdrop-blur-sm min-w-[608px] dark:bg-opacity-85 dark:bg-black dark:text-white">
+            <table
+                className="w-full table-auto bg-gray-50 bg-opacity-90 shadow-2xl backdrop-blur-sm min-w-[608px] dark:bg-opacity-85 dark:bg-black dark:text-white">
                 <thead>
                 <tr onClick={(e) => setSort(e.target.id)}
                     className="cursor-pointer select-none border-b-2 bg-gray-100 text-left dark:bg-black">
@@ -3237,10 +3240,33 @@ export const CoinsTable = () => {
                 </thead>
                 <tbody>
                 {
-                    coins.map(coin => <CoinRow key={coin.id} data={coin}/>)
+                    coinsData.map(coin => <CoinRow key={coin.id} data={coin}/>)
+                }
+                {
+                    isLoading
+                        ? (
+                            <tr className="h-96">
+                                <td colSpan={6}>
+                                    <Loader className="my-0 mx-auto  w-32 h-32"/>
+                                </td>
+                            </tr>
+                        )
+                        : null
+                }
+                {
+                    error
+                        ? (
+                            <tr className="h-96">
+                                <td colSpan={6}>
+                                    <div className="text-center text-2xl">{error}</div>
+                                </td>
+                            </tr>
+                        )
+                        : null
                 }
                 </tbody>
             </table>
+
         </div>
     );
 };
