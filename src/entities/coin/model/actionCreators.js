@@ -1,4 +1,4 @@
-import {coinsDataFetching, coinsDataFetchingError, coinsDataFetchingSuccess} from "./slice.js";
+import {coinsDataFetching, coinsDataFetchingError, coinsDataFetchingSuccess} from "./slice";
 
 
 export const fetchCoinsData = () => async (dispatch) => {

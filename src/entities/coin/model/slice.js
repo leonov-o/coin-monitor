@@ -23,7 +23,6 @@ const coinsSlice = createSlice({
         },
         coinsDataSort(state, action) {
             const {sortBy, desc} = action.payload;
-            console.log("sort")
             state.coinsData = state.coinsData.sort((a, b) => {
                 const aValue = sortBy === "name" ? a[sortBy].toLowerCase() : a[sortBy];
                 const bValue = sortBy === "name" ? b[sortBy].toLowerCase() : b[sortBy];

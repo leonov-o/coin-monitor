@@ -1,1 +1,1 @@
-export {PageDescription} from "./ui/PageDescription.jsx"
+export {PageDescription} from "./ui/PageDescription"

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Header} from "../../../../widgets/header/index";
-import {PageDescription} from "../../../../widgets/pageDescription/index.js";
-import {CoinsTable} from "../../../../widgets/coinsTable/index.js";
+import {PageDescription} from "../../../../widgets/pageDescription/index";
+import {CoinsTable} from "../../../../widgets/coinsTable/index";
 
 
 export const Cryptocurrencies = () => {

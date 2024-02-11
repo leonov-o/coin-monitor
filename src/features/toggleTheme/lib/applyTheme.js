@@ -4,4 +4,6 @@ export const applyTheme = () => {
         (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
     document.documentElement.classList.toggle('dark', isDarkMode);
+
+    return isDarkMode;
 };
