@@ -1,11 +1,19 @@
-import {Cryptocurrencies} from "../pages/cryptocurrencies/index";
+import {router, withStore} from "./providers";
+import {RouterProvider} from "react-router-dom";
+import {useEffect} from "react";
+import {fetchCoinsData} from "../entities/index.js";
+import {useDispatch} from "react-redux";
 
 function App() {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchCoinsData())
+    }, []);
+    
     return (
-        <div className="bg-[url('src/assets/img/bg.png')] dark:bg-[url('src/assets/img/bg-dark.png')] dark:bg-gray-950 min-h-screen">
-            <Cryptocurrencies/>
-        </div>
+        <RouterProvider router={router}/>
     )
 }
 
-export default App
+export default withStore(App);

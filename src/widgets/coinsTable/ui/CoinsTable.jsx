@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {CoinRow} from "../../../entities/coin/index";
-import {fetchCoinsData} from "../../../entities/coin/model/actionCreators";
+import {CoinRow, coinsDataSort} from "../../../entities";
 import {useDispatch, useSelector} from "react-redux";
-import {coinsDataSort} from "../../../entities/coin/model/slice";
-import {Loader} from "../../../shared/index";
+import {Loader} from "../../../shared/";
 
 export const CoinsTable = () => {
     const {coinsData, isLoading, error} = useSelector(state => state.coins);
@@ -11,10 +9,6 @@ export const CoinsTable = () => {
     const [desc, setDesc] = useState(false);
 
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(fetchCoinsData())
-    }, []);
 
     useEffect(() => {
         dispatch(coinsDataSort({sortBy, desc}));

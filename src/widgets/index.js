@@ -1,0 +1,5 @@
+export * from "./coinsTable"
+export * from "./coinInfo"
+export * from "./header"
+export * from "./footer"
+export * from "./pageDescription"

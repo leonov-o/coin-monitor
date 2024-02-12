@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from "react-router-dom";
+import {rounded} from "../../../../shared";
 
 export const CoinRow = ({data}) => {
     const {
@@ -12,22 +14,21 @@ export const CoinRow = ({data}) => {
         price_change_percentage_7d_in_currency: price_change_7d
     } = data;
 
-    const rounded = (num, digits) => {
-        return (Math.round((num)*100)/100).toFixed(digits);
-    }
 
     return (
         <tr className="hover:bg-blue-50 dark:hover:bg-gray-900">
             <td className="pl-3">{rank}</td>
-            <td className="flex cursor-pointer items-center">
-                <div className="h-8 w-8">
-                    <img src={image} alt="coinImage"/>
-                </div>
-                <div className="ml-4">
-                    <div className="">{name}</div>
-                    <div className="font-light uppercase">{symbol}</div>
-                </div>
-            </td>
+            <Link to={"coins/" + data.id}>
+                <td className="flex cursor-pointer items-center">
+                    <div className="h-8 w-8">
+                        <img src={image} alt="coinImage"/>
+                    </div>
+                    <div className="ml-4">
+                        <div className="">{name}</div>
+                        <div className="font-light uppercase">{symbol}</div>
+                    </div>
+                </td>
+            </Link>
             <td>{price} $</td>
             <td className={price_change_1h < 0 ? "text-red-600" : "text-green-600"}>{rounded(price_change_1h, 1)} %</td>
             <td className={price_change_24h < 0 ? "text-red-600" : "text-green-600"}>{rounded(price_change_24h, 1)} %</td>

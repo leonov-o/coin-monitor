@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {MoonIcon, SunIcon} from "@radix-ui/react-icons";
-import {applyTheme} from "../lib/applyTheme";
+import {applyTheme} from "../lib";
 
 export const ToggleTheme = () => {
     const [theme, setTheme] = useState("");

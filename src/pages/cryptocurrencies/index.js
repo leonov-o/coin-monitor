@@ -1,1 +1,1 @@
-export {Cryptocurrencies} from "./ui/Cryptocurrencies/Cryptocurrencies"
+export {Cryptocurrencies} from "./ui/Cryptocurrencies"
