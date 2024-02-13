@@ -8,7 +8,7 @@ function App() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchCoinsData())
+        dispatch(fetchCoinsData());
     }, []);
     
     return (

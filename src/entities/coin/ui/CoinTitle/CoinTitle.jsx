@@ -3,7 +3,7 @@ import {Card, rounded} from "../../../../shared";
 
 export const CoinTitle = ({id, name, symbol, rank, price, price_change, high24, low24, image, actionBtn}) => {
     return (
-        <div className="flex items-center justify-between rounded-2xl bg-white bg-opacity-90 px-10 py-4 shadow-lg">
+        <div className="flex items-center justify-between rounded-2xl bg-white bg-opacity-90 px-10 py-4 shadow-lg dark:bg-black dark:bg-opacity-80">
             <div className="flex items-center">
                 <div className="h-12 w-12">
                     <img src={image} alt="coinImage"/>
@@ -11,7 +11,7 @@ export const CoinTitle = ({id, name, symbol, rank, price, price_change, high24, 
                 <div className="ml-3">
                     <div className="flex items-center">
                         <div className="text-2xl font-medium">{name}</div>
-                        <div className="ml-3 h-6 rounded bg-gray-200 px-2 text-center">#{rank}</div>
+                        <div className="ml-3 h-6 rounded bg-gray-200 px-2 text-center dark:bg-gray-800">#{rank}</div>
                     </div>
                     <div className="uppercase">{symbol}</div>
                 </div>

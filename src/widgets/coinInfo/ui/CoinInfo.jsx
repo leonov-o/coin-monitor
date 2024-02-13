@@ -28,7 +28,6 @@ export const CoinInfo = ({data}) => {
                        high24={high24}
                        low24={low24}
                        image={image.small}/>
-            <CoinDescription description={description.en}/>
             <CoinStats market_cap={market_cap}
                        circulating_supply={circulating_supply}
                        total_supply={total_supply}
@@ -36,6 +35,10 @@ export const CoinInfo = ({data}) => {
                        ath={ath}
                        atl={atl}/>
             <CoinGraphics id={id}/>
+            {
+                description.en &&
+                <CoinDescription description={description.en}/>
+            }
         </div>
     );
 };

@@ -20,7 +20,7 @@ export const CoinRow = ({data}) => {
             <td className="pl-3">{rank}</td>
             <Link to={"coins/" + data.id}>
                 <td className="flex cursor-pointer items-center">
-                    <div className="h-8 w-8">
+                    <div className="h-8 w-8 p-0.5">
                         <img src={image} alt="coinImage"/>
                     </div>
                     <div className="ml-4">
