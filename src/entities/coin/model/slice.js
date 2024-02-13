@@ -4,11 +4,24 @@ import {createSlice} from "@reduxjs/toolkit";
 const coinsSlice = createSlice({
     name: "coins",
     initialState: {
+        allCoins: [],
         coinsData: [],
         isLoading: true,
         error: ''
     },
     reducers: {
+        allCoinsFetching(state) {
+            state.isLoading = true;
+        },
+        allCoinsFetchingSuccess(state, action) {
+            state.isLoading = false;
+            state.error = '';
+            state.allCoins = action.payload;
+        },
+        allCoinsFetchingError(state, action) {
+            state.isLoading = false;
+            state.error = action.payload;
+        },
         coinsDataFetching(state) {
             state.isLoading = true;
         },
@@ -37,4 +50,12 @@ const coinsSlice = createSlice({
     }
 });
 export default coinsSlice.reducer;
-export const {coinsDataFetching, coinsDataFetchingSuccess, coinsDataFetchingError, coinsDataSort} = coinsSlice.actions;
+export const {
+    allCoinsFetching,
+    allCoinsFetchingSuccess,
+    allCoinsFetchingError,
+    coinsDataFetching,
+    coinsDataFetchingSuccess,
+    coinsDataFetchingError,
+    coinsDataSort
+} = coinsSlice.actions;
