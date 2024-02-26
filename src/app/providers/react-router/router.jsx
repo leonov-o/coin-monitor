@@ -1,6 +1,5 @@
 import {createBrowserRouter} from "react-router-dom";
-import {CoinPage, Cryptocurrencies, LayoutPage, NotFoundPage} from "../../../pages";
-
+import {CoinPage, ConverterPage, Cryptocurrencies, LayoutPage, NotFoundPage} from "../../../pages";
 
 export const router = createBrowserRouter([
     {
@@ -18,7 +17,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/converter",
-                element: <div>Converter</div>,
+                element: <ConverterPage/>,
             },
             {
                 path: "favourite",

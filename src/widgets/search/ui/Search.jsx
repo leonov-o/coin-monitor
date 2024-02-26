@@ -24,7 +24,7 @@ export const Search = () => {
         <div className="mb-8">
             <div className="flex justify-center">
                 <input
-                    className="rounded rounded-b-none p-2 w-1/3 focus:outline-none"
+                    className="w-1/3 rounded rounded-b-none bg-gray-100 p-2 focus:outline-none"
                     type="text"
                     placeholder="Search..."
                     value={searchValue}
@@ -34,9 +34,9 @@ export const Search = () => {
             </div>
 
             {searchValue.length !== 0 && isActive && (
-                <div className="bg-white w-1/3 absolute left-1/2 transform -translate-x-1/2 z-10">
+                <div className="absolute left-1/2 z-10 w-1/3 -translate-x-1/2 transform bg-white">
                     {filteredCoins.map((coin) => (
-                        <div key={coin.id} className="p-2 hover:bg-gray-100 cursor-pointer rounded border-b-2">
+                        <div key={coin.id} className="cursor-pointer rounded border-b-2 p-2 hover:bg-gray-100">
                             <Link to={`/coins/${coin.id}`}>{coin.name}</Link>
                         </div>
                     ))}
