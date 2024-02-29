@@ -1,10 +1,14 @@
 import React from 'react';
 import {Card, rounded} from "../../../../shared";
+import {ToggleFavourite} from "../../../../features/";
 
-export const CoinTitle = ({id, name, symbol, rank, price, price_change, high24, low24, image, actionBtn}) => {
+export const CoinTitle = ({id, name, symbol, rank, price, price_change, high24, low24, image}) => {
     return (
         <div className="flex items-center justify-between rounded-2xl bg-white bg-opacity-90 px-10 py-4 shadow-lg dark:bg-black dark:bg-opacity-80">
             <div className="flex items-center">
+                <div className="mr-6">
+                    <ToggleFavourite id={id}/>
+                </div>
                 <div className="h-12 w-12">
                     <img src={image} alt="coinImage"/>
                 </div>

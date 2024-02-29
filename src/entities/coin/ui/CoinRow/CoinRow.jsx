@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import {rounded} from "../../../../shared";
+import {ToggleFavourite} from "../../../../features";
 
 export const CoinRow = ({data}) => {
     const {
@@ -33,6 +34,7 @@ export const CoinRow = ({data}) => {
             <td className={price_change_1h < 0 ? "text-red-600" : "text-green-600"}>{rounded(price_change_1h, 1)} %</td>
             <td className={price_change_24h < 0 ? "text-red-600" : "text-green-600"}>{rounded(price_change_24h, 1)} %</td>
             <td className={price_change_7d < 0 ? "text-red-600" : "text-green-600"}>{rounded(price_change_7d, 1)} %</td>
+            <td><ToggleFavourite id={data.id}/></td>
         </tr>
     );
 };

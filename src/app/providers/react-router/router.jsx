@@ -1,5 +1,5 @@
 import {createBrowserRouter} from "react-router-dom";
-import {CoinPage, ConverterPage, Cryptocurrencies, LayoutPage, NotFoundPage} from "../../../pages";
+import {CoinPage, ConverterPage, Cryptocurrencies, FavouritePage, LayoutPage, NotFoundPage} from "../../../pages";
 
 export const router = createBrowserRouter([
     {
@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "favourite",
-                element: <div>Favourite</div>
+                element: <FavouritePage/>
             }
         ]
     }

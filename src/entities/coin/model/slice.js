@@ -6,6 +6,7 @@ const coinsSlice = createSlice({
     initialState: {
         allCoins: [],
         coinsData: [],
+        favourites: [],
         isLoading: true,
         error: ''
     },
@@ -45,6 +46,16 @@ const coinsSlice = createSlice({
                     return aValue > bValue ? 1 : -1;
                 }
             });
+        },
+        addFavourite(state, action) {
+            if (Array.isArray(action.payload)) {
+                state.favourites = action.payload
+            } else {
+                state.favourites.push(action.payload);
+            }
+        },
+        removeFavourite(state, action) {
+            state.favourites = state.favourites.filter(id => id !== action.payload);
         }
 
     }
@@ -57,5 +68,7 @@ export const {
     coinsDataFetching,
     coinsDataFetchingSuccess,
     coinsDataFetchingError,
-    coinsDataSort
+    coinsDataSort,
+    addFavourite,
+    removeFavourite
 } = coinsSlice.actions;

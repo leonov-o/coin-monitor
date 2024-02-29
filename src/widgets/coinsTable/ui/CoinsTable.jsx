@@ -33,7 +33,7 @@ export const CoinsTable = () => {
 
 
     return (
-        <div className="flex justify-center px-80 pb-24">
+        <div className="mx-80 mb-24 flex justify-center">
             <table
                 className="w-full table-auto bg-gray-50 bg-opacity-90 shadow-2xl backdrop-blur-sm min-w-[608px] dark:bg-opacity-85 dark:bg-black dark:text-white">
                 <thead>
@@ -48,6 +48,7 @@ export const CoinsTable = () => {
                         className="py-2">24h {handleSort("price_change_percentage_24h_in_currency")}</th>
                     <th id="price_change_percentage_7d_in_currency"
                         className="py-2">7d {handleSort("price_change_percentage_7d_in_currency")}</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
