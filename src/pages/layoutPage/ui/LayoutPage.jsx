@@ -4,9 +4,13 @@ import {Outlet} from "react-router-dom";
 
 export const LayoutPage = () => {
     return (
-        <div className="bg-[url('../src/assets/img/bg.png')] dark:bg-[url('../src/assets/img/bg-dark.png')] dark:bg-gray-950 min-h-screen">
+        <div
+            className="bg-[url('../src/assets/img/bg.png')] dark:bg-[url('../src/assets/img/bg-dark.png')] dark:bg-gray-950">
             <Header/>
-            <Outlet/>
+            <div className="min-h-screen">
+                <Outlet/>
+
+            </div>
             <Footer/>
         </div>
     );

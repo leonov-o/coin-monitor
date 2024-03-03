@@ -33,9 +33,9 @@ export const CoinsTable = () => {
 
 
     return (
-        <div className="mx-80 mb-24 flex justify-center">
+        <div className="flex justify-center">
             <table
-                className="w-full table-auto bg-gray-50 bg-opacity-90 shadow-2xl backdrop-blur-sm min-w-[608px] dark:bg-opacity-85 dark:bg-black dark:text-white">
+                className="w-3/4 table-auto bg-gray-50 bg-opacity-90 shadow-2xl backdrop-blur-sm  dark:bg-opacity-85 dark:bg-black dark:text-white">
                 <thead>
                 <tr onClick={(e) => setSort(e.target.id)}
                     className="cursor-pointer select-none border-b-2 bg-gray-100 text-left dark:bg-black">
@@ -43,11 +43,11 @@ export const CoinsTable = () => {
                     <th id="name" className="py-2">Coin {handleSort("name")}</th>
                     <th id="current_price" className="py-2">Price {handleSort("current_price")}</th>
                     <th id="price_change_percentage_1h_in_currency"
-                        className="py-2">1h {handleSort("price_change_percentage_1h_in_currency")}</th>
+                        className="py-2 hidden lg:table-cell">1h {handleSort("price_change_percentage_1h_in_currency")}</th>
                     <th id="price_change_percentage_24h_in_currency"
-                        className="py-2">24h {handleSort("price_change_percentage_24h_in_currency")}</th>
+                        className="py-2 hidden lg:table-cell">24h {handleSort("price_change_percentage_24h_in_currency")}</th>
                     <th id="price_change_percentage_7d_in_currency"
-                        className="py-2">7d {handleSort("price_change_percentage_7d_in_currency")}</th>
+                        className="py-2 hidden lg:table-cell">7d {handleSort("price_change_percentage_7d_in_currency")}</th>
                     <th></th>
                 </tr>
                 </thead>

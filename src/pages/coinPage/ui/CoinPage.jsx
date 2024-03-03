@@ -18,7 +18,7 @@ export const CoinPage = () => {
     }
 
     return (
-        <div className="px-64 py-10 dark:text-white">
+        <div className="px-6 md:px-24  xl:px-64 py-10 dark:text-white">
             <div>
                 <CoinInfo data={data}/>
             </div>

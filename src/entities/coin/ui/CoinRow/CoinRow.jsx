@@ -19,22 +19,26 @@ export const CoinRow = ({data}) => {
     return (
         <tr className="hover:bg-blue-50 dark:hover:bg-gray-900">
             <td className="pl-3">{rank}</td>
-            <Link to={"coins/" + data.id}>
-                <td className="flex cursor-pointer items-center">
-                    <div className="h-8 w-8 p-0.5">
-                        <img src={image} alt="coinImage"/>
+
+            <td className="">
+                <Link to={"coins/" + data.id}>
+                    <div className="flex cursor-pointer items-center">
+                        <div className="h-8 w-8 p-0.5">
+                            <img src={image} alt="coinImage"/>
+                        </div>
+                        <div className="ml-4">
+                            <div className="">{name}</div>
+                            <div className="font-light uppercase">{symbol}</div>
+                        </div>
                     </div>
-                    <div className="ml-4">
-                        <div className="">{name}</div>
-                        <div className="font-light uppercase">{symbol}</div>
-                    </div>
-                </td>
-            </Link>
+                </Link>
+            </td>
+
             <td>{price} $</td>
-            <td className={price_change_1h < 0 ? "text-red-600" : "text-green-600"}>{rounded(price_change_1h, 1)} %</td>
-            <td className={price_change_24h < 0 ? "text-red-600" : "text-green-600"}>{rounded(price_change_24h, 1)} %</td>
-            <td className={price_change_7d < 0 ? "text-red-600" : "text-green-600"}>{rounded(price_change_7d, 1)} %</td>
-            <td><ToggleFavourite id={data.id}/></td>
+            <td className={`hidden lg:table-cell ${price_change_1h < 0 ? "text-red-600" : "text-green-600"}`}>{rounded(price_change_1h, 1)} %</td>
+            <td className={`hidden lg:table-cell ${price_change_24h < 0 ? "text-red-600" : "text-green-600"}`}>{rounded(price_change_24h, 1)} %</td>
+            <td className={`hidden lg:table-cell ${price_change_7d < 0 ? "text-red-600" : "text-green-600"}`}>{rounded(price_change_7d, 1)} %</td>
+            <td className="pr-3"><ToggleFavourite id={data.id}/></td>
         </tr>
     );
 };

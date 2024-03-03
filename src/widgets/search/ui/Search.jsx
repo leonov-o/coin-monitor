@@ -18,13 +18,13 @@ export const Search = () => {
 
     const filteredCoins = allCoins.filter((coin) =>
         coin.name.toLowerCase().startsWith(searchValue.toLowerCase())
-    ).slice(0, 10);
+    );
 
     return (
         <div className="mb-8">
             <div className="flex justify-center">
                 <input
-                    className="w-1/3 rounded rounded-b-none bg-gray-100 p-2 focus:outline-none"
+                    className="w-2/3 lg:w-1/3  rounded rounded-b-none bg-gray-100 p-2 focus:outline-none"
                     type="text"
                     placeholder="Search..."
                     value={searchValue}
@@ -34,11 +34,14 @@ export const Search = () => {
             </div>
 
             {searchValue.length !== 0 && isActive && (
-                <div className="absolute left-1/2 z-10 w-1/3 -translate-x-1/2 transform bg-white">
+                <div
+                    className="absolute left-1/2 z-10 w-2/3 lg:w-1/3 -translate-x-1/2 transform bg-white max-h-48 overflow-y-scroll">
                     {filteredCoins.map((coin) => (
-                        <div key={coin.id} className="cursor-pointer rounded border-b-2 p-2 hover:bg-gray-100">
-                            <Link to={`/coins/${coin.id}`}>{coin.name}</Link>
-                        </div>
+                        <Link key={coin.id} to={`/coins/${coin.id}`}>
+                            <div className="cursor-pointer rounded border-b-2 p-2 hover:bg-gray-100">
+                                {coin.name}
+                            </div>
+                        </Link>
                     ))}
                 </div>
             )}

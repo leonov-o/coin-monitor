@@ -59,9 +59,9 @@ export const Converter = () => {
     return (
         <div className="flex flex-col items-center">
             <div
-                className="flex h-12 w-1/3 items-center rounded-md bg-gray-200 pr-4 space-x-4 dark:bg-opacity-85 dark:bg-black dark:text-white">
+                className="flex h-12 w-1/2 md:w-1/3 items-center rounded-md bg-gray-200 pr-4 space-x-4 dark:bg-opacity-85 dark:bg-black dark:text-white">
                 <div className="flex border-r-2 border-gray-300">
-                    <Selector className="h-12" background="bg-gray-200 dark:bg-black dark:bg-opacity-85"
+                    <Selector className="h-12 w-24 lg:w-36" background="bg-gray-200 dark:bg-black dark:bg-opacity-85"
                               items={allCoins} selected={fromCurrency}
                               onChange={(item) => handleSelect("from", item)}/>
                 </div>
@@ -80,9 +80,9 @@ export const Converter = () => {
             </button>
 
             <div
-                className="flex h-12 w-1/3 items-center rounded-md bg-gray-200 pr-4 space-x-4 dark:bg-opacity-85 dark:bg-black dark:text-white">
+                className="flex h-12 w-1/2 md:w-1/3 items-center rounded-md bg-gray-200 pr-4 space-x-4 dark:bg-opacity-85 dark:bg-black dark:text-white">
                 <div className="flex border-r-2 border-gray-300">
-                    <Selector className="h-12" background="bg-gray-200 dark:bg-black dark:bg-opacity-85"
+                    <Selector className="h-12 w-24 lg:w-36" background="bg-gray-200 dark:bg-black dark:bg-opacity-85"
                               items={allCoins} selected={toCurrency}
                               onChange={(item) => handleSelect("to", item)}/>
                 </div>
